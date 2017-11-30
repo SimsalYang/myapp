@@ -19,13 +19,6 @@ router.get('/posts',function(req,res,next){
   });
 });
 
-/** POST posts */
-router.post('/posts/create',function(req,res,next){
-  var title = req.body.title;
-  var content = req.body.content;
-  res.send({title,content});//收到数据后，把数据返回给请求方
-});
-
 /** POST create post */
 router.post('/posts/create', function (req, res, next) {
   var title = req.body.title;
