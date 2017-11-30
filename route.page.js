@@ -4,7 +4,7 @@ var PostModel = require('./models/post');
 
 /** GET home page */
 router.get('/',function(req,res,next){
-  res.render('index',{title:'Simon Yang'})
+  res.render('index', { title: 'Simon Yang' });
 });
 
 /** GET posts page */
@@ -18,8 +18,8 @@ router.get('/posts/show', function (req, res, next) {
 
   PostModel.findOne({ _id: id }, function (err, post) {
     res.render('show', { post });
-  })
-})
+  });
+});
 
 /** GET about page */
 router.get('/about',function(req,res,next){
