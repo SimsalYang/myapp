@@ -1,10 +1,12 @@
-body
-{
-  background-image:url('/images/background.jpg');
-  background-size:100%;
-  background-repeat:no-repeat;
+body {
+background - image: url('/images/background.jpg'); 
+background - size: 100 % ; 
+background - repeat: no - repeat; 
 }
 
 a {
 color: #00B7FF; 
+}
+.container {
+background - color: #b0b0b0; 
 }

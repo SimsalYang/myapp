@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title><%= post.title %></title>
-  <link rel="stylesheet" href='/stylesheets/style'>
-  <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
-</head>
-<body>
-  <div id="app">
-    <div class="container">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="pull-right">
-          <li><a href="/posts/edit?id=<%= post._id %>">编辑文章</a></li>
-        </div>
-        <h1><%= post.title %></h1>
-        <div><%- post.content %></div>
-      </div>
-    </div>
+<div class="col-md-8 col-md-offset-2">
+  <div class="pull-right">
+    <li><a href="/posts/edit?id=<%= post._id %>">编辑文章</a></li>
   </div>
-  
-</body>
-</html>
+  <h1><%= post.title %></h1>
+  <div><%- post.content %></div>
+</div>
