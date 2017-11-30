@@ -12,10 +12,11 @@ router.get('/posts',function(req,res,next){
   PostModel.find({}, {}, function (err, posts) {
     if (err) {
       res.json({ success: false });
-      return;
+    } else {
+      res.json({ success: true, postsList: posts });
     }
 
-    res.json({ success: true, postsList: posts });
+    
   });
 });
 
@@ -28,7 +29,11 @@ router.post('/posts/create', function (req, res, next) {
   post.title = title;
   post.content = content;
   post.save(function (err, doc) {
-    res.json({ success: true });
+    if (err) {
+      res.json({ success: false });
+    } else {
+      res.json({ success: true });
+    }
   });
 });
 
