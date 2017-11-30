@@ -15,8 +15,6 @@ router.get('/posts',function(req,res,next){
     } else {
       res.json({ success: true, postsList: posts });
     }
-
-    
   });
 });
 
