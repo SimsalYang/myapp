@@ -18,7 +18,7 @@ router.get('/posts/show', function (req, res, next) {
   var id = req.query.id;
 
   PostModel.findOne({ _id: id }, function (err, post) {
-    post.mkContent = marked(post.content);
+    post.content = marked(post.content);
     res.render('show', { post });
   });
 });
@@ -28,9 +28,15 @@ router.get('/about',function(req,res,next){
   res.render('about',{title:'about me'});
 });
 
-/** GET posts edit page */
+/** GET posts create page */
 router.get('/posts/create',function(req,res,next){
   res.render('create');
+});
+
+/** GET posts edit page */
+router.get('/posts/edit', function (req, res, next) {
+  var id = req.query.id;
+  res.render('edit', { id });
 });
 
 module.exports = router;

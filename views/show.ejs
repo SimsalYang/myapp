@@ -10,8 +10,15 @@
 </head>
 <body>
   <div id="app">
-    <h1><%= post.title %></h1>
-    <div><%- post.content %></div>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="pull-right">
+          <li><a href="/posts/edit?id=<%= post._id %>">编辑文章</a></li>
+        </div>
+        <h1><%= post.title %></h1>
+        <div><%- post.content %></div>
+      </div>
+    </div>
   </div>
   
 </body>
