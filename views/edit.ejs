@@ -35,7 +35,7 @@
         title:'',
         content:''
       },
-      created(){
+      created () {
         axios.get('/api/posts/one?id=' + postId)
           .then(function(response){
             vm.title = response.data.post.title;
