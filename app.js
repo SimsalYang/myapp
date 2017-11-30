@@ -1,3 +1,4 @@
+require('./models/init');//连接数据库
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
