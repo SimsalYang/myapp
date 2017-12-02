@@ -26,18 +26,18 @@ router.post('/posts', function (req, res, next) {
   var post = new PostModel();
   post.title = title;
   post.content = content;
-  post.save(function (errm,doc) {
+  post.save(function (err,doc) {
     if (err) {
       next(err);
     } else {
-      res.json({ post:doc });
+      res.json({ post: doc });
     }
   });
 });
 
 /** GET one post */
 router.get('/posts/:id', function (req, res, next) {
-  var id = req.params.id;
+  var id = req.query.id;
 
   PostModel.findOne({ _id: id }, function (err, post) {
     if (err) {

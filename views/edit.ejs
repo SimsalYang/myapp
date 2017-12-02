@@ -32,7 +32,7 @@
     },
     methods: {
       submit() {
-        axios.post('/api/v1/posts/' + postId,
+        axios.patch('/api/v1/posts/' + postId,
           {
             title: vm.title,
             content: vm.content
