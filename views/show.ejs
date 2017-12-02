@@ -1,6 +1,28 @@
   <div class="pull-right">
     <a href="/posts/edit?id=<%= post._id %>">编辑文章</a>
-    <a href="/posts/<% post._id %>">删除文章</a>
+    <button class="btn btn-danger" v-on:click="submit">删除文章</button>
   </div>
   <h1><%= post.title %></h1>
   <div><%- post.content %></div>
+  <script>
+    var id = '<%= post._id %>';
+    var vm = new Vue({
+      el:'#app',
+      data:{
+      },
+      methods:{
+        submit(){
+          axios.delete('/api/v1/posts' + id,)
+          .then(function(response){
+            return response.data;
+          })
+          .then(function(data){
+            window.location = '/posts';
+          })
+          .catch(function(err){
+            alert(err);
+          })
+        }
+      }
+    });
+  </script>
