@@ -49,7 +49,7 @@ router.get('/posts/:id', function (req, res, next) {
 });
 
 /** PATCH edit post */
-router.post('/posts/:id', function (req, res, next) {
+router.patch('/posts/:id', function (req, res, next) {
   var id = req.body.id;
   var title = req.body.title;
   var content = req.body.content;
@@ -62,5 +62,13 @@ router.post('/posts/:id', function (req, res, next) {
     }
   });
 });
+
+/** DELETE one */
+router.delete('/posts/:id', function (req, res, next) {
+  var id = req.body.id;
+  PostModel.remove({ _id: id }, function (err) {
+    if (err) handleError(err);
+  })
+})
 
 module.exports = router;
