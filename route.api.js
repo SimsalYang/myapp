@@ -26,7 +26,7 @@ router.post('/posts', function (req, res, next) {
   var post = new PostModel();
   post.title = title;
   post.content = content;
-  post.save(function (err, doc) {
+  post.save(function (err) {
     if (err) {
       res.json({ success: false });
     } else {
@@ -37,7 +37,7 @@ router.post('/posts', function (req, res, next) {
 
 /** GET one post */
 router.get('/posts/:id', function (req, res, next) {
-  var id = req.query.id;
+  var id = req.params.id;
 
   PostModel.findOne({ _id: id }, function (err, post) {
     if (err) {
