@@ -23,8 +23,11 @@
             title: vm.title,
             content: vm.content
           })
-          .then(function (response) {
-            alert(JSON.stringify(response.data));
+          .then(function(response){
+            return response.data;
+          })
+          .then(function (data) {
+            window.location = '/posts/show?id=' + data.post._id;
           })
           .catch(function (err) {
             alert(err);

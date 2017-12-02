@@ -11,9 +11,9 @@ router.get('/users',function(req,res,next){
 router.get('/posts',function(req,res,next){
   PostModel.find({}, {}, function (err, posts) {
     if (err) {
-      res.json({ success: false });
+      next(err);
     } else {
-      res.json({ success: true, postsList: posts });
+      res.json({ postsList: posts });
     }
   });
 });
@@ -26,11 +26,11 @@ router.post('/posts', function (req, res, next) {
   var post = new PostModel();
   post.title = title;
   post.content = content;
-  post.save(function (err) {
+  post.save(function (errm,doc) {
     if (err) {
-      res.json({ success: false });
+      next(err);
     } else {
-      res.json({ success: true });
+      res.json({ post:doc });
     }
   });
 });
@@ -41,9 +41,9 @@ router.get('/posts/:id', function (req, res, next) {
 
   PostModel.findOne({ _id: id }, function (err, post) {
     if (err) {
-      res.json({ success: false });
+      next(err);
     } else {
-      res.json({ success: true, post });
+      res.json({ post });
     }
   });
 });
@@ -56,9 +56,9 @@ router.post('/posts/:id', function (req, res, next) {
 
   PostModel.findOneAndUpdate({ _id: id }, { title, content }, function (err) {
     if (err) {
-      res.json({ success: false });
+      next(err);
     } else {
-      res.json({ success: true });
+      res.json({});
     }
   });
 });
