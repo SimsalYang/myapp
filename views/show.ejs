@@ -1,6 +1,6 @@
   <div class="pull-right">
     <a href="/posts/edit?id=<%= post._id %>">编辑文章</a>
-    <button class="btn btn-danger" v-on:click="submit">删除文章</button>
+    <button class="btn btn-danger" v-on:click="delete">删除文章</button>
   </div>
   <h1><%= post.title %></h1>
   <div><%- post.content %></div>
@@ -11,7 +11,7 @@
       data:{
       },
       methods:{
-        submit(){
+        delete(){
           axios.delete('/api/v1/posts/' + id,)
           .then(function(response){
             window.location = '/posts';
