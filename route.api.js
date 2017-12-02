@@ -68,7 +68,7 @@ router.delete('/posts/:id', function (req, res, next) {
   var id = req.body.id;
   PostModel.remove({ _id: id }, function (err) {
     if (err) handleError(err);
-  })
-})
+  });
+});
 
 module.exports = router;

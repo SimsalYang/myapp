@@ -13,9 +13,6 @@
       methods:{
         submit(){
           axios.delete('/api/v1/posts' + id,)
-          .then(function(response){
-            return response.data;
-          })
           .then(function(data){
             window.location = '/posts';
           })
