@@ -7,6 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressLayouts = require('express-ejs-layouts');
 var auth = require('./middlewares/auth');
+var config = require('./config');
+
 
 var page = require('./route.page');
 var api = require('./route.api');
@@ -26,6 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser(config.cookieName));
 
 app.use(auth.authUser);
 app.use('/',page);
