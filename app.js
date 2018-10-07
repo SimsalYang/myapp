@@ -13,7 +13,6 @@ var config = require('./config');
 var page = require('./route.page');
 var api = require('./route.api');
 
-
 var app = express();
 
 // view engine setup
